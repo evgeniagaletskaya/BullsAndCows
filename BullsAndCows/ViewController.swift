@@ -38,8 +38,28 @@ class ViewController: UIViewController {
         addObserversToKeyboard()
         configureGame()
         configureContentView()
-        addTapGesture()
         print(numberToGuess)
+    }
+    
+    private func configureContentView() {
+        contentView.backgroundColor = #colorLiteral(red: 1, green: 0.9129201285, blue: 0.5342976985, alpha: 1)
+        
+        sendButton.isEnabled = true
+        newGameButton.isEnabled = true
+        
+        guessNumberLabel.text = "Guess the Number"
+        guessNumberLabel.textColor = UIColor.black
+        
+        scrollView.keyboardDismissMode = .interactive
+        textField.delegate = self
+        
+        addTapGesture()
+    }
+    
+    private func addTapGesture() {
+        let tap = UITapGestureRecognizer(target: view, action: #selector(view.endEditing(_:)))
+        view.addGestureRecognizer(tap)
+        
     }
     
     private func addObserversToKeyboard() {
@@ -79,22 +99,10 @@ class ViewController: UIViewController {
         
     }
     
-    private func addTapGesture() {
-        let tap = UITapGestureRecognizer(target: view, action: #selector(view.endEditing(_:)))
-        view.addGestureRecognizer(tap)
-    }
     
     
     
-    private func configureContentView() {
-        contentView.backgroundColor = #colorLiteral(red: 1, green: 0.9129201285, blue: 0.5342976985, alpha: 1)
-        
-        sendButton.isEnabled = true
-        newGameButton.isEnabled = true
-        
-        guessNumberLabel.text = "Guess the Number"
-        guessNumberLabel.textColor = UIColor.black
-    }
+    
     
     private func configureGame() {
         allAttempts.removeAll()
