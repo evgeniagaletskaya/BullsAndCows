@@ -63,17 +63,24 @@ class ViewController: UIViewController {
         }
         
         let keyboardHeight = keyboardRect.height
-        UIView.animate(withDuration: 0.1) { self.bottomScrollViewConstraint.constant = keyboardHeight }
-        self.contentView.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1) {
+            self.bottomScrollViewConstraint.constant = keyboardHeight
+            self.contentView.layoutIfNeeded()
+        }
+       
     }
     
     @objc func keyboardWillHideNotification(notification: NSNotification) {
-        bottomScrollViewConstraint.constant = 0
-        self.contentView.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1) {
+            self.bottomScrollViewConstraint.constant = 0
+            self.contentView.layoutIfNeeded()
+        }
+       
+        
     }
     
     private func addTapGesture() {
-        let tap = UITapGestureRecognizer(target: view, action: #selector(view.endEditing(true)))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(view.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
     
@@ -108,11 +115,8 @@ class ViewController: UIViewController {
     
     @IBAction private func sendButtonPressed(_ sender: UIButton) {
         if inputNumber.count == 4 {
-            
             resultOfComparing = self.compareTo(number: inputNumber)
-            
             addNewGuessLine()
-            
             if inputNumber == numberToGuess {
                 guessNumberLabel.text = "\(numberToGuess)"
                 guessNumberLabel.textColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)

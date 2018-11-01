@@ -83,7 +83,7 @@
                                                                 <rect key="frame" x="67.5" y="0.0" width="263.5" height="35"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="iwY-u5-DGP"/>
                                                                 </connections>
