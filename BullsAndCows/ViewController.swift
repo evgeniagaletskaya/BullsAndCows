@@ -186,7 +186,7 @@ class ViewController: UIViewController {
                 }
             }
         }
-        return "\(inputNumber) B:\(bulls) C:\(cows)"
+        return "\(inputNumber) - B: \(bulls) C: \(cows)"
     }
     
     
