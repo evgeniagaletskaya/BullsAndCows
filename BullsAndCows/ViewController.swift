@@ -30,7 +30,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var sendButton: UIButton!
-   
+    @IBOutlet weak var inputLabel: UILabel!
+    
 
     
     override func viewDidLoad() {
@@ -42,9 +43,28 @@ class ViewController: UIViewController {
     }
     
     private func configureContentView() {
-        contentView.backgroundColor = #colorLiteral(red: 1, green: 0.9129201285, blue: 0.5342976985, alpha: 1)
+        
+        let backgroundImage = UIImage(named: "bullscows")
+        let imageView = UIImageView(frame: contentView.frame)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = backgroundImage
+        imageView.center = contentView.center
+        contentView.addSubview(imageView)
+        self.contentView.sendSubviewToBack(imageView)
+        
+        inputLabel.backgroundColor = UIColor.white
+        inputLabel.layer.borderColor = UIColor.lightGray.cgColor
+        inputLabel.layer.borderWidth = 1.5
+        inputLabel.layer.cornerRadius = 6
         
         sendButton.isEnabled = true
+        sendButton.layer.borderColor = UIColor.lightGray.cgColor
+        sendButton.backgroundColor = UIColor.white
+        sendButton.layer.borderWidth = 1.5
+        sendButton.layer.cornerRadius = 6
+        
+        
         newGameButton.isEnabled = true
         
         guessNumberLabel.text = "Guess the Number"
@@ -59,11 +79,9 @@ class ViewController: UIViewController {
     private func addTapGesture() {
         let tap = UITapGestureRecognizer(target: view, action: #selector(view.endEditing(_:)))
         view.addGestureRecognizer(tap)
-        
     }
     
     private func addObserversToKeyboard() {
-        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShowNotification(notification:)),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -99,11 +117,6 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
-    
     private func configureGame() {
         allAttempts.removeAll()
         resultOfComparing = ""
@@ -122,6 +135,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func sendButtonPressed(_ sender: UIButton) {
+        inputNumber = textField.text!
         if inputNumber.count == 4 {
             resultOfComparing = self.compareTo(number: inputNumber)
             addNewGuessLine()
@@ -131,6 +145,7 @@ class ViewController: UIViewController {
                 guessNumberLabel.shadowColor = UIColor.darkGray
                 sendButton.isEnabled = false
             }
+            
         } else {
             print("Enter 4 numbers")
         }
@@ -195,18 +210,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ViewController: UITextFieldDelegate {
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("should begin editing")
-        return true
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         print("resign 1st responder")
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        inputNumber = textField.text!
-    }
 }

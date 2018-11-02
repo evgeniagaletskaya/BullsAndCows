@@ -41,10 +41,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oNA-jh-apu">
-                                                <rect key="frame" x="0.0" y="97" width="375" height="482"/>
+                                                <rect key="frame" x="0.0" y="97" width="375" height="484"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XG6-zl-FLW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="437"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="438"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" textLabel="2ur-lu-vhB" style="IBUITableViewCellStyleDefault" id="th6-tX-bk7">
@@ -71,16 +71,16 @@
                                                         </connections>
                                                     </tableView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dka-nq-Zmv" userLabel="InputStackView">
-                                                        <rect key="frame" x="0.0" y="447" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="448" width="375" height="36"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ed-Bm-sYQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ed-Bm-sYQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your guess" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b7U-TG-nL6">
-                                                                <rect key="frame" x="67.5" y="0.0" width="263.5" height="35"/>
+                                                                <rect key="frame" x="67.5" y="0.0" width="261.5" height="36"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -89,8 +89,8 @@
                                                                 </connections>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twE-E9-Ima">
-                                                                <rect key="frame" x="331" y="0.0" width="44" height="35"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <rect key="frame" x="329" y="0.0" width="46" height="36"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <state key="normal" title="Send"/>
                                                                 <connections>
                                                                     <action selector="sendButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cIV-Pi-04Z"/>
@@ -108,8 +108,8 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxa-za-KaO">
-                                                <rect key="frame" x="137" y="629" width="101" height="38"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <rect key="frame" x="139" y="631" width="97" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="New Game"/>
                                                 <connections>
                                                     <action selector="newGamePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="stL-af-PFK"/>
@@ -152,6 +152,7 @@
                         <outlet property="bottomScrollViewConstraint" destination="JjA-q3-ULq" id="cyR-jW-brY"/>
                         <outlet property="contentView" destination="aOm-R4-eao" id="tkS-I8-l0M"/>
                         <outlet property="guessNumberLabel" destination="NIn-Ze-hOM" id="b7q-vb-NT1"/>
+                        <outlet property="inputLabel" destination="6Ed-Bm-sYQ" id="yXh-6Z-Zh5"/>
                         <outlet property="newGameButton" destination="rxa-za-KaO" id="tKC-yM-rL5"/>
                         <outlet property="scrollView" destination="T5z-c1-bQE" id="fSP-lR-tM2"/>
                         <outlet property="sendButton" destination="twE-E9-Ima" id="Rcu-bs-zWg"/>
