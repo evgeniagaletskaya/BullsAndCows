@@ -39,7 +39,25 @@ class ViewController: UIViewController {
         addObserversToKeyboard()
         configureGame()
         configureContentView()
-        print(numberToGuess)
+    }
+    
+    private func addObserversToKeyboard() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShowNotification(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHideNotification(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    private func configureGame() {
+        allAttempts.removeAll()
+        resultOfComparing = ""
+        textField.text = ""
+        inputNumber = ""
+        tableView.reloadData()
     }
     
     private func configureContentView() {
@@ -81,20 +99,7 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    private func addObserversToKeyboard() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShowNotification(notification:)),
-                                               name: UIResponder.keyboardWillShowNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHideNotification(notification:)),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
-    }
-    
-    
-    
-    
+    //MARK: - Keyboard
     @objc func keyboardWillShowNotification(notification: NSNotification) {
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
@@ -105,7 +110,6 @@ class ViewController: UIViewController {
             self.bottomScrollViewConstraint.constant = keyboardHeight
             self.contentView.layoutIfNeeded()
         }
-       
     }
     
     @objc func keyboardWillHideNotification(notification: NSNotification) {
@@ -113,25 +117,6 @@ class ViewController: UIViewController {
             self.bottomScrollViewConstraint.constant = 0
             self.contentView.layoutIfNeeded()
         }
-       
-        
-    }
-    
-    private func configureGame() {
-        allAttempts.removeAll()
-        resultOfComparing = ""
-        textField.text = ""
-        inputNumber = ""
-        tableView.reloadData()
-    }
-    
-    
-    private func startNewGame() {
-        let game = Game.init()
-        numberToGuess = game.randomNumber
-        configureGame()
-        configureContentView()
-        
     }
     
     @IBAction private func sendButtonPressed(_ sender: UIButton) {
@@ -171,7 +156,13 @@ class ViewController: UIViewController {
         print(numberToGuess)
     }
     
-    
+    private func startNewGame() {
+        let game = Game.init()
+        numberToGuess = game.randomNumber
+        configureGame()
+        configureContentView()
+        
+    }
     
     // comparing 2 numbers & printing the result
     private func compareTo(number: String) -> String {
@@ -192,6 +183,8 @@ class ViewController: UIViewController {
     
 }
 
+//MARK: - Table View
+
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -207,6 +200,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
 }
+
+//MARK: - Text Field
 
 extension ViewController: UITextFieldDelegate {
     

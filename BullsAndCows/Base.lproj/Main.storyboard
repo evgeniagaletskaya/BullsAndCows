@@ -41,10 +41,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oNA-jh-apu">
-                                                <rect key="frame" x="0.0" y="97" width="375" height="484"/>
+                                                <rect key="frame" x="0.0" y="97" width="375" height="534"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XG6-zl-FLW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="438"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="488"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" textLabel="2ur-lu-vhB" style="IBUITableViewCellStyleDefault" id="th6-tX-bk7">
@@ -71,7 +71,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dka-nq-Zmv" userLabel="InputStackView">
-                                                        <rect key="frame" x="0.0" y="448" width="375" height="36"/>
+                                                        <rect key="frame" x="0.0" y="498" width="375" height="36"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ed-Bm-sYQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="54.5" height="36"/>
@@ -121,7 +121,7 @@
                                             <constraint firstAttribute="bottom" secondItem="rxa-za-KaO" secondAttribute="bottom" id="3BF-po-6As"/>
                                             <constraint firstItem="oNA-jh-apu" firstAttribute="leading" secondItem="aOm-R4-eao" secondAttribute="leading" id="CBX-7F-xeF"/>
                                             <constraint firstItem="rxa-za-KaO" firstAttribute="centerX" secondItem="aOm-R4-eao" secondAttribute="centerX" id="NUd-d8-9Ex"/>
-                                            <constraint firstItem="rxa-za-KaO" firstAttribute="top" secondItem="oNA-jh-apu" secondAttribute="bottom" constant="50" id="Qqt-7m-dDP"/>
+                                            <constraint firstItem="rxa-za-KaO" firstAttribute="top" secondItem="oNA-jh-apu" secondAttribute="bottom" id="Qqt-7m-dDP"/>
                                             <constraint firstAttribute="trailing" secondItem="oNA-jh-apu" secondAttribute="trailing" id="SQC-3p-46E"/>
                                             <constraint firstItem="oNA-jh-apu" firstAttribute="top" secondItem="tZb-ol-TuB" secondAttribute="bottom" constant="5" id="WIs-HU-h92"/>
                                             <constraint firstItem="tZb-ol-TuB" firstAttribute="centerX" secondItem="aOm-R4-eao" secondAttribute="centerX" id="obp-OH-yVf"/>
